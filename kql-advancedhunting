@@ -1,0 +1,14 @@
+==========================
+Advanced Hunting with KQL 
+==========================
+
+//Get the list of non-internal email addresses where <insert CEO name here> is the "SenderDisplayName"
+//To find just gmail addresses - you can also add | where SenderFromAddress endswith "@gmail.com"
+//Note that using the "!" in front of the "!contains" means it does not contain that value. 
+
+EmailEvents
+| where Timestamp > ago(90d)
+| where SenderDisplayName has "John Smith"
+| where SenderMailFromDomain !contains "smithtech.com"
+| where SenderMailFromDomain !contains "smithtechsisterco.com"
+
