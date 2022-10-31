@@ -19,3 +19,17 @@ EmailEvents
 | where SenderMailFromDomain !contains "smithtech.com"
 | where SenderMailFromDomain !contains "smithtechsisterco.com"
 
+
+
+==============
+https://medium.com/mii-cybersec/advanced-threat-hunting-queries-using-kql-kusto-query-language-77a507f067bf
+//Registry Persistence commonly used to find Registry Persistance
+
+DeviceRegistryEvents
+| where ActionType == "RegistryValueSet"
+| where RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\RunServiceOnce"
+    or RegistryKey endswith @"Software\Microsoft\Windows\CurrentVersion\RunServices"
+    
+=========================
+    
+    
