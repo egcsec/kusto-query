@@ -2,6 +2,9 @@
 
 https://kusto.azure.com/clusters/help/databases/Samples
 
+Looking for specific emails with a specific subject line:
+
+EmailEvents | where (Subject contains "We received payment for your invoice" or SenderFromAddress == "") | limit 100
 
 
 =========================
