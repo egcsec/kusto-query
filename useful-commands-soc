@@ -1,0 +1,7 @@
+## Additional infomation from Device ID
+
+DeviceInfo
+| where DeviceId == "<your_device_id>"
+| project DeviceName, LoggedOnUsers, DeviceId, Timestamp
+| order by Timestamp desc
+
